@@ -1,0 +1,30 @@
+name: "Find Unity Versions"
+author: "mob-sakai <sakai861104@gmail.com>"
+description: "Find Unity editor versions for next jobs."
+inputs:
+  minimum-version:
+    description: "リストされる最小バージョン. For example, 2018.4"
+    required: false
+    default: "2019.4"
+  maximum-version:
+    description: "リストされる最大バージョン. For example, 2022.2"
+    required: false
+  patch:
+    description: "出力したいパッチバージョン（latest|oldest|all）を指定します。デフォルトはlatest（最新のパッチバージョンのみ出力）です。"
+    required: false
+    default: "latest"
+  beta-included:
+    description: "アルファ/ベータバージョンを含めます"
+    required: false
+  append-versions:
+    description: "指定したバージョンをoutputに追加します"
+    required: false
+outputs:
+  versions:
+    description: 'The Unity versions. For example, ["20","20","20"]'
+branding:
+  icon: "box"
+  color: "gray-dark"
+runs:
+  using: "node16"
+  main: "dist/index.js"
